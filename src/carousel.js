@@ -1,15 +1,24 @@
 const carouselSlides = document.getElementById("carousel-slides");
+const width = 300;
+
 const nextFrame = function () {
-  carouselSlides.scrollLeft += 300;
+  if (
+    carouselSlides.scrollLeft >=
+    carouselSlides.childElementCount * width - width
+  ) {
+    carouselSlides.scrollLeft = 0;
+  } else {
+    carouselSlides.scrollLeft += width;
+  }
 };
 
 const previousFrame = function () {
-  carouselSlides.scrollLeft -= 300;
+  carouselSlides.scrollLeft -= width;
 };
 
 const selectFrame = function (button) {
-    const scrollPosition = (button * 300) - 300;
-    carouselSlides.scroll(scrollPosition, 0)
-}
+  const scrollPosition = button * width - width;
+  carouselSlides.scroll(scrollPosition, 0);
+};
 
 export { nextFrame, previousFrame, selectFrame };

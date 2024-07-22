@@ -22,3 +22,7 @@ frameButtons.forEach((frame) => {
     selectFrame(id);
   });
 });
+
+setInterval(() => {
+  nextFrame();
+}, 5000);
